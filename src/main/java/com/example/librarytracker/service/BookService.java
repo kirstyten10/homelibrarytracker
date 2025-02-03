@@ -17,7 +17,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book GetBookByTitle(Long id) {
+    public Book GetBookById(Long id) {
         return bookRepository.findById(id).orElse(null);
     }
 
