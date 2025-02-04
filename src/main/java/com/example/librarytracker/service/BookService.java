@@ -15,7 +15,7 @@ public class BookService {
     private BookRepository bookRepository;
 
     public List<Book> searchBooks(String query) {
-        return bookRepository.findByTitleContaining(query);
+        return bookRepository.findByTitleContainingIgnoreCase(query);
     }
 
     public List<Book> getAllBooks() {
