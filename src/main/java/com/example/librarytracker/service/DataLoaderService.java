@@ -31,13 +31,15 @@ public class DataLoaderService {
         }
 
         List<Book> books = new ArrayList<>();
+        int rowCount = 0;
+
         try (CSVReader csvReader = new CSVReader(new FileReader(filePath))) {
             String[] line;
 
             // Skip the header row
             csvReader.readNext();
 
-            while ((line = csvReader.readNext()) != null) {
+            while ((line = csvReader.readNext()) != null && rowCount < 10001) {
                 try {
                     Book book = new Book();
 
@@ -46,7 +48,7 @@ public class DataLoaderService {
                         System.err.println("Skipping book due to author's name being too long: " + authors);
                         continue;
                     }
-
+                    book.setBook_id(parseLong(line[0], "Book ID"));
                     book.setGoodreadsBookId(parseLong(line[1], "Goodreads Book ID"));
                     book.setIsbn(parseLong(line[5], "ISBN"));
                     book.setAuthors(line[7]);
@@ -54,7 +56,7 @@ public class DataLoaderService {
                     book.setTitle(line[10]);
                     book.setLanguage(line[11]);
                     book.setAverageRating(parseDouble(line[12], "Average Rating"));
-                    book.setImageUrl(line[20]);
+                    book.setImageUrl(line[21]);
 
                     books.add(book);
                     System.out.println("Book processed: " + book.getTitle());
