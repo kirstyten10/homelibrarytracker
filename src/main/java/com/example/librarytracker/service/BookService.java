@@ -10,8 +10,13 @@ import com.example.librarytracker.repository.BookRepository;
 
 @Service
 public class BookService {
+
     @Autowired
     private BookRepository bookRepository;
+
+    public List<Book> searchBooks(String query) {
+        return bookRepository.findByTitleContaining(query);
+    }
 
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
