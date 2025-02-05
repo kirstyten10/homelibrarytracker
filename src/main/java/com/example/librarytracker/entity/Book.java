@@ -11,7 +11,7 @@ public class Book {
     private Long book_id;
 
     private Long goodreadsBookId;
-    private Long isbn;
+    private String isbn;
     private String authors;
     private Long publishYear;
     private String title;

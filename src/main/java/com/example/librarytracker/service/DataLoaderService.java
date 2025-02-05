@@ -50,7 +50,7 @@ public class DataLoaderService {
                     }
                     book.setBook_id(parseLong(line[0], "Book ID"));
                     book.setGoodreadsBookId(parseLong(line[1], "Goodreads Book ID"));
-                    book.setIsbn(parseLong(line[5], "ISBN"));
+                    book.setIsbn(line[5]);
                     book.setAuthors(line[7]);
                     book.setPublishYear(parseLong(line[8].split("\\.")[0], "Publish Year"));
                     book.setTitle(line[10]);

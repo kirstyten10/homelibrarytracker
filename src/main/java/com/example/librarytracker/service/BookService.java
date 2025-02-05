@@ -15,7 +15,7 @@ public class BookService {
     private BookRepository bookRepository;
 
     public List<Book> searchBooks(String query) {
-        return bookRepository.findByTitleContainingIgnoreCase(query);
+        return bookRepository.findByTitleOrAuthorsOrIsbnContainingIgnoreCase(query);
     }
 
     public Book getBookById(Long id) {
@@ -25,9 +25,4 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
-
-    public Book GetBookById(Long id) {
-        return bookRepository.findById(id).orElse(null);
-    }
-
 }
