@@ -17,6 +17,7 @@ public class Book {
     private String title;
     private String language;
     private double averageRating;
+    private Integer ratingCount;
     private String imageUrl;
 
 }

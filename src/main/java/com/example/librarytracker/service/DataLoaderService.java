@@ -56,6 +56,7 @@ public class DataLoaderService {
                     book.setTitle(line[10]);
                     book.setLanguage(line[11]);
                     book.setAverageRating(parseDouble(line[12], "Average Rating"));
+                    book.setRatingCount(parseInteger(line[13], "Rating Count"));
                     book.setImageUrl(line[21]);
 
                     books.add(book);
@@ -97,6 +98,15 @@ public class DataLoaderService {
         } catch (NumberFormatException e) {
             System.err.println("Invalid " + fieldName + ": " + value);
             throw e;
+        }
+    }
+
+    private Integer parseInteger(String value, String fieldName) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid " + fieldName + ": " + value);
+            return null;
         }
     }
 }
