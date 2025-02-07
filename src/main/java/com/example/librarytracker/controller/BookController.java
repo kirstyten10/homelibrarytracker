@@ -20,7 +20,10 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("/search")
-    public List<Book> searchBooks(@RequestParam String query) {
+    public List<Book> searchBooks(@RequestParam(required = false) String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return bookService.getAllBooks();
+        }
         return bookService.searchBooks(query);
     }
 
