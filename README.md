@@ -15,7 +15,7 @@ Clone the repository
 Clone frontend repository. Ensure both frontend and backend (homelibrarytracker) are in the same project
 
 ### Step Three
-Fetch csv file from https://github.com/zygmuntz/goodbooks-10k/blob/master/samples/books.csv
+Fetch csv file from https://github.com/zygmuntz/goodbooks-10k/blob/master/books.csv
 Add to src/main/resources
 
 ### Step Four
